@@ -1,0 +1,7 @@
+fake_store_ui.products:
+  path: '/productos-externos'
+  defaults:
+    _controller: '\Drupal\fake_store_ui\Controller\FakeStoreController::showProducts'
+    _title: 'Productos externos'
+  requirements:
+    _permission: 'access content'

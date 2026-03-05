@@ -1,0 +1,7 @@
+services:
+  fake_store_ui.api_client:
+    class: Drupal\fake_store_ui\Service\FakeStoreService
+    arguments:
+      - '@http_client'
+      - '@cache.data'
+      - '@logger.factory'

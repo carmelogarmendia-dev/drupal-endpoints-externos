@@ -1,0 +1,5 @@
+name: 'Fake Store UI'
+type: module
+description: 'Módulo para consumir FakeStoreAPI y mostrar productos externos'
+package: 'Custom'
+core_version_requirement: '^11'
