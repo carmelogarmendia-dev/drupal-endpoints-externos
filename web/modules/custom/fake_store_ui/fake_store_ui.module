@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Módulo fake_store_ui: hooks y funciones principales.
+ */
+
+/**
+ * Implements hook_theme().
+ *
+ * Registra el theme hook que conecta el controlador con la plantilla Twig.
+ */
+function fake_store_ui_theme(): array {
+  return [
+    'fake_store_products' => [
+      'variables' => [
+        'products'    => [],
+        'categories'  => [],
+        'filter_name' => '',
+        'filter_cat'  => '',
+      ],
+      'template' => 'fake-store-products',
+    ],
+  ];
+}

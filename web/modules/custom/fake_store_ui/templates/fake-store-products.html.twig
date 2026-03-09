@@ -1,0 +1,93 @@
+{#
+/**
+ * @file
+ * Template for the FakeStore product listing with filtering.
+ *
+ * Variables:
+ * - products: Array of products to display ({id, title, price, category, image}).
+ * - categories: Array of unique category strings.
+ * - filter_name: Current text filter value.
+ * - filter_cat: Current category filter value.
+ */
+#}
+
+<section class="fsu-wrapper">
+
+  {# ---- Formulario de filtros ---- #}
+  <form class="fsu-filters" method="get" action="{{ url('<current>') }}">
+    <label>
+      Nombre
+      <input
+        type="text"
+        name="nombre"
+        value="{{ filter_name }}"
+        placeholder="Buscar por nombre..."
+      >
+    </label>
+
+    <label>
+      Categoría
+      <select name="cat">
+        <option value="">— Todas —</option>
+        {% for cat in categories %}
+          <option value="{{ cat }}" {% if cat == filter_cat %}selected{% endif %}>
+            {{ cat|capitalize }}
+          </option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <button type="submit">Filtrar</button>
+
+    {% if filter_name or filter_cat %}
+      <a href="{{ url('<current>') }}" class="fsu-card__link" style="margin-top:0;">
+        ✕ Limpiar filtros
+      </a>
+    {% endif %}
+  </form>
+
+  {# ---- Contador de resultados ---- #}
+  <p class="fsu-count">
+    {% if products|length == 1 %}
+      1 producto encontrado.
+    {% else %}
+      {{ products|length }} productos encontrados.
+    {% endif %}
+  </p>
+
+  {# ---- Grid de productos ---- #}
+  {% if products is not empty %}
+    <ul class="fsu-grid">
+      {% for product in products %}
+        <li class="fsu-card">
+          <div class="fsu-card__img-wrapper">
+            <img
+              class="fsu-card__img"
+              src="{{ product.image }}"
+              alt="{{ product.title }}"
+              loading="lazy"
+            >
+          </div>
+          <div class="fsu-card__body">
+            <span class="fsu-card__category">{{ product.category }}</span>
+            <p class="fsu-card__title">{{ product.title }}</p>
+            <strong class="fsu-card__price">${{ product.price }}</strong>
+            <a
+              class="fsu-card__link"
+              href="https://fakestoreapi.com/products/{{ product.id }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver detalle ↗
+            </a>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="fsu-no-results">
+      No se han encontrado productos con los filtros seleccionados.
+    </div>
+  {% endif %}
+
+</section>

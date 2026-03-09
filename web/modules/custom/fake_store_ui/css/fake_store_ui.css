@@ -1,0 +1,178 @@
+/* =========================================================
+   fake_store_ui - Estilos del catálogo de productos externos
+   ========================================================= */
+
+/* Barra de filtros */
+.fsu-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+  background: #f4f6f9;
+  border: 1px solid #dde3ec;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 32px;
+}
+
+.fsu-filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #444;
+  flex: 1;
+  min-width: 200px;
+}
+
+.fsu-filters input[type="text"],
+.fsu-filters select {
+  padding: 8px 12px;
+  border: 1px solid #b8c4d0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+
+.fsu-filters input[type="text"]:focus,
+.fsu-filters select:focus {
+  outline: none;
+  border-color: #3b78c3;
+  box-shadow: 0 0 0 3px rgba(59, 120, 195, 0.15);
+}
+
+.fsu-filters button {
+  padding: 9px 24px;
+  background: #3b78c3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.fsu-filters button:hover {
+  background: #2c5fa8;
+}
+
+.fsu-filters button:active {
+  transform: scale(0.97);
+}
+
+/* Contador de resultados */
+.fsu-count {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+/* Grid de productos: auto-fit calcula las columnas automáticamente */
+.fsu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Tarjetas */
+.fsu-card {
+  background: #fff;
+  border: 1px solid #e0e6ef;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.fsu-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
+  transform: translateY(-3px);
+}
+
+.fsu-card__img-wrapper {
+  background: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.fsu-card__img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.fsu-card__body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+}
+
+.fsu-card__category {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #3b78c3;
+}
+
+.fsu-card__title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.fsu-card__price {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a6e32;
+}
+
+.fsu-card__link {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 8px 16px;
+  background: #f0f5fc;
+  color: #3b78c3;
+  border: 1px solid #c5d6ef;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.fsu-card__link:hover {
+  background: #3b78c3;
+  color: #fff;
+  border-color: #3b78c3;
+}
+
+/* Sin resultados */
+.fsu-no-results {
+  padding: 40px;
+  text-align: center;
+  color: #777;
+  font-style: italic;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px dashed #ddd;
+}
